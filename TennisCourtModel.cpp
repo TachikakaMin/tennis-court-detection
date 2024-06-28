@@ -8,7 +8,7 @@
 #include "DebugHelpers.h"
 #include "geometry.h"
 #include "TimeMeasurement.h"
-
+#include <fstream>
 using namespace cv;
 
 TennisCourtModel::TennisCourtModel()

@@ -3,9 +3,12 @@ project(detect)
 
 set(CMAKE_CXX_STANDARD 11)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(TARGETS)
+#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#conan_basic_setup(TARGETS)
 
 file(GLOB SRC_FILES *.cpp)
 add_executable(${CMAKE_PROJECT_NAME} ${SRC_FILES})
-target_link_libraries(${CMAKE_PROJECT_NAME} CONAN_PKG::opencv)
+find_package( OpenCV REQUIRED )
+message(${OpenCV_VERSION})
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+target_link_libraries(${CMAKE_PROJECT_NAME} ${OpenCV_LIBS})
